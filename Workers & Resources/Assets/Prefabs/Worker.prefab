@@ -291,3 +291,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12a16eba1a7e2bf438002a73dcfcf90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resourceLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  collectDistance: 0.2
+  timeBetweenCollect: 0.5
+  collectionAmount: 2

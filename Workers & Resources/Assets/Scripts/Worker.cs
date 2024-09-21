@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Worker : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private LayerMask resourceLayer;
+    private Resource currentResource;
     [Header("Settings")]
+    [SerializeField] private float collectDistance;
+    [SerializeField] private float timeBetweenCollect;
+    [SerializeField] private int collectionAmount;
+    private float nextCollectTime;
     private bool isSelected;
 
-    // Update is called once per frame
+    
     private void Update()
     {
         if(isSelected == true)
@@ -17,6 +24,27 @@ public class Worker : MonoBehaviour
             mousePos.z = 0;
 
             transform.position = mousePos;
+        }
+        else
+        {
+            Collider2D collider = Physics2D.OverlapCircle(transform.position, collectDistance, resourceLayer);
+            if(collider != null && currentResource == null)
+            {
+                currentResource = collider.GetComponent<Resource>();
+            }
+            else
+            {
+                currentResource = null;
+            }
+
+            if(currentResource != null)
+            {
+                if(Time.time > nextCollectTime)
+                {
+                    CollectResource();
+                    nextCollectTime = Time.time + timeBetweenCollect;
+                }
+            }
         }
     }
 
@@ -29,5 +57,11 @@ public class Worker : MonoBehaviour
     private void OnMouseUp()
     {
         isSelected = false;
+    }
+
+    private void CollectResource()
+    {
+        currentResource.resourceAmount -= collectionAmount;
+        Debug.Log("Resource: " + currentResource.resourceType + " Amount: " + currentResource.resourceAmount + " Collected: " + collectionAmount);
     }
 }
