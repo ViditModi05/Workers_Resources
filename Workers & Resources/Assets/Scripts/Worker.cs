@@ -62,6 +62,8 @@ public class Worker : MonoBehaviour
     private void CollectResource()
     {
         currentResource.resourceAmount -= collectionAmount;
+        ResourceManager.instance.AddResource(currentResource.resourceType, collectionAmount);
         Debug.Log("Resource: " + currentResource.resourceType + " Amount: " + currentResource.resourceAmount + " Collected: " + collectionAmount);
-    }
+        Debug.Log ("Wood: " + ResourceManager.instance.wood + " Crystal: " + ResourceManager.instance.crystal + " Blood: " + ResourceManager.instance.blood);
+    } 
 }
