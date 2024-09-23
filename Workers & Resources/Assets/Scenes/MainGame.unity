@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 3611714}
   - component: {fileID: 3611713}
   - component: {fileID: 3611715}
+  - component: {fileID: 3611716}
   m_Layer: 5
   m_Name: Village Button
   m_TagString: Untagged
@@ -257,6 +258,33 @@ MonoBehaviour:
           m_StringArgument: village
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3611716}
+        m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
+        m_MethodName: RemoveResource
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3611716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3611711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60882f0e0542e2e4492df0eda90ba477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodCost: 200
+  woodCost: 0
+  crystalCost: 0
 --- !u!1 &30509608
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,6 +372,7 @@ GameObject:
   - component: {fileID: 34297258}
   - component: {fileID: 34297257}
   - component: {fileID: 34297259}
+  - component: {fileID: 34297260}
   m_Layer: 5
   m_Name: Wood Button
   m_TagString: Untagged
@@ -466,6 +495,33 @@ MonoBehaviour:
           m_StringArgument: tree
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 34297260}
+        m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
+        m_MethodName: RemoveResource
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &34297260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34297255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60882f0e0542e2e4492df0eda90ba477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodCost: 0
+  woodCost: 10
+  crystalCost: 0
 --- !u!1001 &43606513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -619,6 +675,7 @@ GameObject:
   - component: {fileID: 115003176}
   - component: {fileID: 115003175}
   - component: {fileID: 115003177}
+  - component: {fileID: 115003178}
   m_Layer: 5
   m_Name: Trap Button
   m_TagString: Untagged
@@ -741,6 +798,33 @@ MonoBehaviour:
           m_StringArgument: trap
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 115003178}
+        m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
+        m_MethodName: RemoveResource
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &115003178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115003173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60882f0e0542e2e4492df0eda90ba477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodCost: 0
+  woodCost: 0
+  crystalCost: 15
 --- !u!1001 &124301001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1795,7 +1879,7 @@ GameObject:
   - component: {fileID: 500586483}
   - component: {fileID: 500586482}
   m_Layer: 5
-  m_Name: Village Cost
+  m_Name: VillageBlood Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1817,7 +1901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 92.12195, y: -7}
+  m_AnchoredPosition: {x: 92.12195, y: -4}
   m_SizeDelta: {x: 46.2439, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &500586482
@@ -2437,7 +2521,7 @@ GameObject:
   - component: {fileID: 710723006}
   - component: {fileID: 710723005}
   m_Layer: 5
-  m_Name: 'Icon  '
+  m_Name: 'Blood Icon  '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2459,7 +2543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 147, y: -5.9999695}
+  m_AnchoredPosition: {x: 147, y: -2.999939}
   m_SizeDelta: {x: 66, y: 87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &710723005
@@ -2847,6 +2931,7 @@ GameObject:
   - component: {fileID: 960490842}
   - component: {fileID: 960490841}
   - component: {fileID: 960490843}
+  - component: {fileID: 960490844}
   m_Layer: 5
   m_Name: Crystal Button
   m_TagString: Untagged
@@ -2969,6 +3054,33 @@ MonoBehaviour:
           m_StringArgument: crystal
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 960490844}
+        m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
+        m_MethodName: RemoveResource
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &960490844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960490839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60882f0e0542e2e4492df0eda90ba477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodCost: 0
+  woodCost: 0
+  crystalCost: 15
 --- !u!1001 &1004983804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3541,6 +3653,63 @@ Transform:
   - {fileID: 1208709670}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1287137382
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859360517892109601, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_Name
+      value: Village
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
 --- !u!4 &1290173698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4981514047131452227, guid: 9fb67ba9201107843b4db3c4d4e92d41, type: 3}
@@ -3784,6 +3953,7 @@ GameObject:
   - component: {fileID: 1383600423}
   - component: {fileID: 1383600422}
   - component: {fileID: 1383600424}
+  - component: {fileID: 1383600425}
   m_Layer: 5
   m_Name: Human Button
   m_TagString: Untagged
@@ -3906,6 +4076,33 @@ MonoBehaviour:
           m_StringArgument: worker
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1383600425}
+        m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
+        m_MethodName: RemoveResource
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1383600425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383600420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60882f0e0542e2e4492df0eda90ba477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodCost: 20
+  woodCost: 0
+  crystalCost: 0
 --- !u!1001 &1453669912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5417,6 +5614,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071222557}
   m_CullTransparentMesh: 1
+--- !u!1001 &2076968278
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 70371956594100332, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1040074472835328851, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: timeBetweenSpawn
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859360517892109601, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
+      propertyPath: m_Name
+      value: Village (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d82779c9ac9419c46a4ffc730b420acb, type: 3}
 --- !u!1 &2096228459
 GameObject:
   m_ObjectHideFlags: 0
@@ -5942,3 +6200,5 @@ SceneRoots:
   - {fileID: 484486941}
   - {fileID: 506637392}
   - {fileID: 182943541}
+  - {fileID: 1287137382}
+  - {fileID: 2076968278}
