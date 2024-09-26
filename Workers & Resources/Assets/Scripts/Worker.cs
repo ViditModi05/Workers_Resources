@@ -6,6 +6,7 @@ public class Worker : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private LayerMask resourceLayer;
+    private GameObject bloodAltar;
     private Resource currentResource;
     [Header("Settings")]
     [SerializeField] private float collectDistance;
@@ -13,6 +14,11 @@ public class Worker : MonoBehaviour
     [SerializeField] private int collectionAmount;
     private float nextCollectTime;
     private bool isSelected;
+
+    private void Start()
+    {
+        bloodAltar = GameObject.FindGameObjectWithTag("altar");
+    }
 
     
     private void Update()
@@ -27,6 +33,11 @@ public class Worker : MonoBehaviour
         }
         else
         {
+            if(Vector3.Distance(transform.position, bloodAltar.transform.position) <= 0.5f)
+            {
+                ResourceManager.instance.AddSacrificeNumber();
+                Destroy(gameObject);
+            }
             Collider2D collider = Physics2D.OverlapCircle(transform.position, collectDistance, resourceLayer);
             if(collider != null && currentResource == null)
             {

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ResourceManager : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class ResourceManager : MonoBehaviour
     public int wood;
     public int crystal;
     public int blood;
+    public int numberOfWorkersSacrificed;
+    [SerializeField] private int sacrificeGoal;
     
 
     public static ResourceManager instance; 
@@ -33,6 +37,18 @@ public class ResourceManager : MonoBehaviour
         {
             blood += amount;
             ResourceUI.instance.SetText();
+        }
+    }
+
+    public void AddSacrificeNumber()
+    {
+        numberOfWorkersSacrificed++;
+        ResourceUI.instance.sacrificedWorkersText.text = numberOfWorkersSacrificed + " / " + sacrificeGoal;
+
+        if(numberOfWorkersSacrificed >= sacrificeGoal)
+        {
+            print("You Have Won!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

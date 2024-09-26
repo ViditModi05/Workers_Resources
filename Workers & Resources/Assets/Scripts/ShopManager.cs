@@ -32,6 +32,7 @@ public class ShopManager : MonoBehaviour
         if(item == "trap")
         {
             Instantiate(trap);
+            //Debug.Log("Trap");
         }
 
     }

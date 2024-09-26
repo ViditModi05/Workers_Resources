@@ -9,6 +9,7 @@ public class ResourceUI : MonoBehaviour
     [SerializeField] private TMP_Text bloodText;
     [SerializeField] private TMP_Text woodText;
     [SerializeField] private TMP_Text crystalText;
+    public TMP_Text sacrificedWorkersText;
 
     public static ResourceUI instance;
 

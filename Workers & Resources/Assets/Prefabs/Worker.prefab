@@ -294,6 +294,7 @@ MonoBehaviour:
   resourceLayer:
     serializedVersion: 2
     m_Bits: 64
+  bloodAltar: {fileID: 1978149258444375149, guid: 88094bc24974d4b4ba3f0900eb81cef2, type: 3}
   collectDistance: 0.2
   timeBetweenCollect: 0.5
   collectionAmount: 2
