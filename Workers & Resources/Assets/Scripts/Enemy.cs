@@ -7,14 +7,20 @@ public class Enemy : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject blood;
+    [SerializeField] private LayerMask resourceLayer;
+    //[SerializeField] private GameObject deathAudio;
+    private Animator camAnimator;
     [Header("Settings")]
     [SerializeField] private float speed;
     [SerializeField] private float minX, maxX, minY, maxY;
     private Vector3 currentTarget;
+    private int amountOfResourcesDestroyed;
 
     private void Start()
     {
+        //deathAudio = blood.GetComponent<AudioSource>();
         currentTarget = GetRandomPosition();
+        camAnimator = Camera.main.GetComponent<Animator>();
     }
 
     private void Update()
@@ -26,6 +32,12 @@ public class Enemy : MonoBehaviour
         else
         {
            currentTarget = GetRandomPosition();    
+        }
+        Collider2D collider = Physics2D.OverlapCircle(transform.position, 0.2f, resourceLayer);
+        if(collider != null && amountOfResourcesDestroyed == 0)
+        {
+            Destroy(collider.gameObject);
+            amountOfResourcesDestroyed++;
         }
     }
 
@@ -44,9 +56,17 @@ public class Enemy : MonoBehaviour
 
         if(collider.tag == "Trap")
         {
+            camAnimator.SetTrigger("shake");
             Destroy(collider.gameObject);
             Instantiate(blood, transform.position, Quaternion.identity);
+            //Instantiate(deathAudio, transform.position, Quaternion.identity);
             Destroy(gameObject);
+        }
+        if(collider.tag == "Human")
+        {
+            Destroy(collider.gameObject);
+            Instantiate(blood, transform.position, Quaternion.identity);
+            //Instantiate(deathAudio,transform.position,Quaternion.identity);
         }
     }
 }

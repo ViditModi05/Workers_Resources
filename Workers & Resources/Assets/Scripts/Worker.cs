@@ -6,17 +6,22 @@ public class Worker : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private LayerMask resourceLayer;
+    [SerializeField] private GameObject resourcePopUp;
+    [SerializeField] private GameObject deathAudio;
     private GameObject bloodAltar;
     private Resource currentResource;
+    private AudioSource pickAudio;
     [Header("Settings")]
     [SerializeField] private float collectDistance;
     [SerializeField] private float timeBetweenCollect;
     [SerializeField] private int collectionAmount;
+    [SerializeField] private float distanceToAltar;
     private float nextCollectTime;
     private bool isSelected;
 
     private void Start()
     {
+        pickAudio = GetComponent<AudioSource>();
         bloodAltar = GameObject.FindGameObjectWithTag("altar");
     }
 
@@ -33,10 +38,12 @@ public class Worker : MonoBehaviour
         }
         else
         {
-            if(Vector3.Distance(transform.position, bloodAltar.transform.position) <= 0.5f)
+            if(Vector3.Distance(transform.position, bloodAltar.transform.position) <= distanceToAltar)
             {
                 ResourceManager.instance.AddSacrificeNumber();
                 Destroy(gameObject);
+                Instantiate(deathAudio);
+                
             }
             Collider2D collider = Physics2D.OverlapCircle(transform.position, collectDistance, resourceLayer);
             if(collider != null && currentResource == null)
@@ -61,6 +68,7 @@ public class Worker : MonoBehaviour
 
     private void OnMouseDown()
     {
+        pickAudio.Play();
         isSelected = true;
 
     }
@@ -74,6 +82,7 @@ public class Worker : MonoBehaviour
     {
         currentResource.resourceAmount -= collectionAmount;
         ResourceManager.instance.AddResource(currentResource.resourceType, collectionAmount);
+        Instantiate(resourcePopUp, transform.position, Quaternion.identity);
         Debug.Log("Resource: " + currentResource.resourceType + " Amount: " + currentResource.resourceAmount + " Collected: " + collectionAmount);
         Debug.Log ("Wood: " + ResourceManager.instance.wood + " Crystal: " + ResourceManager.instance.crystal + " Blood: " + ResourceManager.instance.blood);
     } 

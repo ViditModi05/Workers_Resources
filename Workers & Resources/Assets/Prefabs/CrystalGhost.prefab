@@ -183,3 +183,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 5635771207798311709, guid: 52b4dec60de870543ae2f02527bb1daf, type: 3}
+  buildEffects: {fileID: 7592358195883178148, guid: 364984cd237e89340b4affb7259c6f84, type: 3}
+  buildSound: {fileID: 6654038551241340074, guid: e6fa8e3eaceb779439e9ec3709ff10f8, type: 3}
