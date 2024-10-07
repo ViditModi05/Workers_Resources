@@ -6,8 +6,12 @@ public class RandAnimSpeed : MonoBehaviour
 {
     private Animator anim;
 
-    void Start(){ 
+    void Start()
+    {
         anim = GetComponent<Animator>();
         anim.speed = Random.Range(.75f, 1.25f);
     }
-}
+
+} 
+
+

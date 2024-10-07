@@ -8,9 +8,11 @@ public class Worker : MonoBehaviour
     [SerializeField] private LayerMask resourceLayer;
     [SerializeField] private GameObject resourcePopUp;
     [SerializeField] private GameObject deathAudio;
+    [SerializeField] private GameObject pickaxe;
     private GameObject bloodAltar;
     private Resource currentResource;
     private AudioSource pickAudio;
+    private Animator animator;
     [Header("Settings")]
     [SerializeField] private float collectDistance;
     [SerializeField] private float timeBetweenCollect;
@@ -21,6 +23,7 @@ public class Worker : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         pickAudio = GetComponent<AudioSource>();
         bloodAltar = GameObject.FindGameObjectWithTag("altar");
     }
@@ -81,9 +84,26 @@ public class Worker : MonoBehaviour
     private void CollectResource()
     {
         currentResource.resourceAmount -= collectionAmount;
+        workAnimation();
+        distanceToResource();
         ResourceManager.instance.AddResource(currentResource.resourceType, collectionAmount);
         Instantiate(resourcePopUp, transform.position, Quaternion.identity);
         Debug.Log("Resource: " + currentResource.resourceType + " Amount: " + currentResource.resourceAmount + " Collected: " + collectionAmount);
         Debug.Log ("Wood: " + ResourceManager.instance.wood + " Crystal: " + ResourceManager.instance.crystal + " Blood: " + ResourceManager.instance.blood);
-    } 
+    }
+    
+    private void distanceToResource()
+    {
+        float distance = Vector3.Distance(transform.position, currentResource.transform.position);
+        Debug.Log(distance);
+    }
+
+    private void workAnimation()
+    {
+        if(currentResource.resourceType == "Crystal")
+        {
+            pickaxe.SetActive(true);
+            animator.SetTrigger("isMining");
+        }
+    }
 }
